@@ -1,28 +1,27 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+const store = createStore({
   state: {
     todos: [
-        "demo todo"
+      "demo todo"
     ],
   },
   mutations: {
     addTodo: (state, newTodo) => {
-        state.todos.push(newTodo);
+      state.todos.push(newTodo);
     },
     removeTodo: (state, index) => {
-        state.todos.splice(index, 1);
+      state.todos.splice(index, 1);
     },
   },
   actions: {
     addTodo: (context, newTodo) => {
-        context.commit('addTodo', newTodo);
+      context.commit('addTodo', newTodo);
     },
     removeTodo: (context, index) => {
-        context.commit('removeTodo', index);
+      context.commit('removeTodo', index);
     },
   }
 });
+
+export default store;
